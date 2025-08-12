@@ -1,0 +1,125 @@
+.floating {
+    display: block;
+    position: fixed;
+    /*top: calc(100vh - 50vh);*/  /* Distance from the top of the viewport */
+    left:0px;
+    background-color: transparent;
+    font-size: 16px;
+    text-align: center;
+    /*transform: translateY(-50%);*/
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    width: 200px;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.dynamic-sidebar{
+    height: calc(100vh - 300px);
+    overflow: auto;
+}
+
+
+.sidebar-section-title{
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+button .bx {
+    font-size: 20px;
+}
+
+.btn-sidebar{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 10px;
+    color: #292a31;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-sidebar:hover{
+    background-color: #159997;
+    border-color: transparent;
+    color: #eff5fa;
+}
+
+.btn-sidebar:not(:disabled):not(.disabled):active,
+.btn-sidebar:not(:disabled):not(.disabled).active,
+.show>.btn-sidebar.dropdown-toggle {
+    color: #eff5fa;
+    background-color: #14a7a5;
+    border-color: transparent;
+}
+
+
+.btn-sidebar-active{
+    background-color: #159997 !important;
+    color: #eff5fa !important;
+    text-align: left;
+}
+
+.btn-sidebar-active:hover{
+    background-color: #fafaff !important;
+    color: #159997 !important;
+}
+
+.btn-sidebar-active:not(:disabled):not(.disabled):active,
+.btn-sidebar-active:not(:disabled):not(.disabled).active,
+.show>.btn-sidebar-active.dropdown-toggle {
+    color: #159997 !important;
+    background-color: transparent !important;
+}
+
+.btn-sidebar-border{
+    border-color: #159997;
+    border-width: 1px;
+}
+
+.btn-sidebar-toggle{
+    display: none;
+}
+
+.btn-sidebar-non-toggle{
+    display: block;
+}
+
+.logo-container{
+    text-align: center;
+}
+
+
+/* Responsive rules */
+@media (max-width: 768px) {
+  .floating {
+    transform: translateX(-100%);
+  }
+
+  .floating.open {
+    transform: translateX(0);
+  }
+
+  .content{
+    margin-left: 0px;
+    padding-left: 20px;
+  }
+
+  .btn-sidebar-toggle {
+    display: block;
+  }
+
+  .btn-sidebar-non-toggle{
+    display: none;
+  }
+
+  .logo-container{
+    text-align: left;
+  }
+
+}

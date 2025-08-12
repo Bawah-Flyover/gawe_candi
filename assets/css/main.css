@@ -1,0 +1,191 @@
+html {
+  font-size: 14px;
+  background-color: #F3F6F9;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem; /* 14px */
+  margin: 0px;
+  background-color: #F3F6F9;
+}
+
+/* =====================================================
+ * Font
+ * =====================================================
+*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", sans-serif;
+    color: #404246;
+}
+
+h1 { font-size: 2.5rem; font-weight: 700; } /* ~40px */
+h2 { font-size: 2rem;   font-weight: 600; } /* ~32px */
+h3 { font-size: 1.75rem; font-weight: 600; } /* ~28px */
+h4 { font-size: 1.5rem; font-weight: 500; } /* ~24px */
+h5 { font-size: 1.25rem; font-weight: 500; } /* ~20px */
+h6 { font-size: 1rem; font-weight: 500; }    /* ~16px */
+p  { font-size: 1rem; font-weight: 400; }    /* ~16px */
+
+/* =====================================================
+ * Color
+ * =====================================================
+*/
+.primary-color{
+    color: #159997 !important;
+}
+.bg-primary{
+    background-color: #159997 !important;
+}
+.outline-primary{
+    outline-color: #159997;
+    outline-width: 2px;
+    outline-style: solid;
+    background-color: transparent !important;
+}
+
+.secondary-color{
+    color: #1599979c !important;
+}
+.bg-secondary{
+    background-color: #268d8b !important;
+}
+
+/* =====================================================
+ * Button
+ * =====================================================
+*/
+
+.btn {
+    font-size: 14px;
+}
+
+.btn-primary{
+    background-color: #159997;
+    border-color: #159997;
+    color: #fafaff;
+    font-weight: bold;
+}
+
+.btn-primary:hover{
+    background-color: #19afad;
+    border-color: #19afad;
+    color:#fafaff;
+    font-weight: bold;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+    color: #fafaff;
+    background-color: #14a7a5;
+    border-color: #14a7a5
+}
+
+/* Shadow when button is pressed*/
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem #14a7a5
+}
+
+
+
+.btn-outline-primary{
+    background-color: transparent;
+    border-color: #159997;
+    color: #159997;
+    font-weight: bold;
+}
+
+.btn-outline-primary:hover{
+    background-color: #159997;
+    border-color: #159997;
+    color:#fafaff;
+    font-weight: bold;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.show>.btn-outline-primary.dropdown-toggle {
+    color: #fafaff;
+    background-color: #14a7a5;
+    border-color: #14a7a5;
+}
+
+/* Shadow when button is pressed*/
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-outline-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem #14a7a5
+}
+
+/* Color when release after clicked*/
+.btn-outline-primary.show{
+    background-color: #14a7a5;
+    border-color: #14a7a5;
+}
+
+
+/* =====================================================
+ * Layout
+ * =====================================================
+*/
+
+.container {
+    width: 100%;
+}
+
+.content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+
+/* =====================================================
+ * Card
+ * =====================================================
+*/
+
+.card{
+    border-width: 0px !important;
+    overflow: hidden;
+}
+
+.card-title{
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 800 !important;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.top-card-image{
+    max-height: 80px; 
+    max-width: 80px;
+    margin-bottom: 5px;
+    object-fit: contain;
+    align-items: center; 
+    justify-content: center;
+}
+
+.big-item-card-image{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.big-item-card-image-container{
+    position: relative;
+    height: auto;
+}
+
+.big-item-card-image-container img{
+    margin-top: -20%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(20%);
+    object-fit: contain;
+    object-position: center top;
+}
