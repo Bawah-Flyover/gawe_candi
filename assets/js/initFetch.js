@@ -59,5 +59,9 @@ async function initGetDevice(){
 }
 
 
-initUserData();
-initGetDevice();
+async function initFetch(){
+    await initUserData();
+    await initGetDevice();
+}
+
+initFetch();
