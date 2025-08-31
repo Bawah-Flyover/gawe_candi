@@ -31,8 +31,10 @@ async function addNewDevice(){
 }
 
 // modal add device
-fetch("modalAddDevice.html")
-    .then(res => res.text())
-    .then(data => {
-        document.getElementById("modalAddDevice").innerHTML = data;
-    });
+async function fetchModalAddDevice(){
+    await fetch("modalAddDevice.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("modalAddDevice").innerHTML = data;
+        });
+}

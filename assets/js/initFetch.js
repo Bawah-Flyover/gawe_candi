@@ -60,6 +60,13 @@ async function initGetDevice(){
 
 
 async function initFetch(){
+    // fetch html element
+    await fetchSidebar();
+    await fetchNavbar();
+    await fetchModalExportData();
+    await fetchModalAddDevice();
+    
+    // fetch initial data
     await initUserData();
     await initGetDevice();
 }
