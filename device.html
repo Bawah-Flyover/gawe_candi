@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Microbess - Device Information</title>
+
+        <!-- Font Family -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <!-- Boxicon -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/sidebar.css">
+        <link rel="stylesheet" href="./assets/css/navbar.css">
+    </head>
+
+    <body>
+        <!-- Floating Left Sidebar -->
+        <div class="floating" id="floating-sidebar">
+        </div>
+
+        <!-- navbar -->
+        <div id="navbar">
+        </div>
+
+        <!-- Content section -->
+        <section class="d-flex flex-column justify-content-center content" style="padding-bottom:0px">            
+            <div class="row" style="height: 100vh; margin: 0px;">
+                <!-- Blank column for sidebar -->
+                <!-- Content column -->
+                <div class="col">
+
+                    <div class="row" style="margin-right:0px; margin-left: 0px; display: block;">
+                        <div class="col" style="padding: 0px;">
+                            <!-- Page Title -->
+                            <div class="row" style="margin-top: 0px; margin-bottom: 15px; margin-left: 0px; margin-right: 0px;">
+                                <div class="col" style="padding: 0px;">
+                                    <h3>Device Information</h3>
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-body" style="padding-bottom: 0px; padding-bottom: 20px;">
+                                            <!-- user icon -->
+                                            <div class="row align-items-center">
+                                                <div class="col-3" style="font-size: 48px;">
+                                                    <i class='bx bxs-server'></i>
+                                                </div>
+                                                <div class="col">
+                                                    <h4 id="device-serial-number"></h4>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-size: 1rem;">
+                                                <div class="col">
+                                                    <hr>
+                                                    <div class="row align-items-center my-3">
+                                                        <div class="col-md-3 fw-bold">Device type</div>
+                                                        <div class="col" id="device-type"></div>
+                                                    
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row align-items-center my-3">
+                                                        <div class="col-md-3 fw-bold">Registered Date</div>
+                                                        <div class="col" id="device-registered-date"></div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row align-items-center my-3">
+                                                        <div class="col-md-3 fw-bold">Last Update</div>
+                                                        <div class="col" id="device-last-update"></div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row align-items-center my-3">
+                                                        <div class="col-md-3 fw-bold">Advanced Setting</div>
+                                                        <div class="col" id="device-delete">
+                                                            <button type="button" class="btn btn-outline-danger" data-bs-target="#deviceDeleteModal" data-bs-toggle="modal">Delete Device</button>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-top: 25px; margin-bottom: 15px; margin-left: 0px; margin-right: 0px;">
+                                <div class="col" style="padding: 0px;">
+                                    <h3>Device Data</h3>
+                                </div>
+                            </div>
+
+                            <div class="row" id="device-data-battery" style="display: none;">
+                                <div class="col">
+                                    <div class="card h-100">
+                                    <div class="card-body" style="padding-bottom: 0px;">
+                                        <div class="row">
+                                            <div class="col-md-5 order-2 order-md-1" style="text-align: center; min-height: 300px;">
+                                                <div class="row">
+                                                    <div class="col big-text-card-container">
+                                                        <div style="
+                                                            font-size: clamp(2.5rem, 4vw, 4rem);
+                                                            margin-top: 2%;
+                                                            margin-bottom: -10%;"
+                                                            >
+                                                            <span class="primary-color" id="device-data-battery-chg-status" style="display: none;"><i class='bx bxs-zap'></i></span>
+                                                            <span class="primary-color" id="device-data-battery-soc"></span>
+                                                            <span class="text-muted" style="font-size: 0.5em;">%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="height: -webkit-fill-available;">
+                                                    <div class="col big-item-card-image-container">
+                                                        <img class="big-item-card-image" src="./assets/img/powerwall.webp" alt="powerwall">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 order-1 order-md-2">
+                                                <div class="product-description">
+                                                    <br>
+                                                    <div class="container mb-5">
+                                                        <h5 class="card-title">Powerwall Information</h5>
+                                                        <div class="row g-4">
+                                                            <div class="col-lg-4 col-md-6 col-6">
+                                                                <div class="card h-100 outline-primary">
+                                                                    <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">                                                                
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <i class='bx bxs-shield-plus primary-color' style="font-size: 3rem;"></i>
+                                                                        </div>
+                                                                        
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <div class="fw-bold">SOH</div>
+                                                                            <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                                                <span id="device-data-battery-soh"></span> <span class="text-muted" style="font-size: 0.5em;">%</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6 col-6">
+                                                                <div class="card h-100 outline-primary">
+                                                                    <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <i class='bx bxs-thermometer primary-color' style="font-size: 3rem;"></i>
+                                                                        </div>
+                                                                        
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <div class="fw-bold">Temp</div>
+                                                                            <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                                                <span id="device-data-battery-temp"></span> <span class="text-muted" style="font-size: 0.5em;">&deg;C</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6 col-6">
+                                                                <div class="card h-100 outline-primary">
+                                                                    <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <i class='bx bxs-bolt primary-color' style="font-size: 3rem;"></i>
+                                                                        </div>
+                                                                        
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <div class="fw-bold">Energy</div>
+                                                                            <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                                                <span id="device-data-battery-energy"></span> <span class="text-muted" style="font-size: 0.5em;">Wh</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6 col-6">
+                                                                <div class="card h-100 outline-primary">
+                                                                    <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">                                                                
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <i class='bx bxs-bolt primary-color' style="font-size: 3rem;"></i>
+                                                                        </div>
+                                                                        
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <div class="fw-bold">Voltage</div>
+                                                                            <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                                                <span id="device-data-battery-voltage"></span> <span class="text-muted" style="font-size: 0.5em;">V</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6 col-6">
+                                                                <div class="card h-100 outline-primary">
+                                                                    <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <i class='bx bxs-bolt primary-color' style="font-size: 3rem;"></i>
+                                                                        </div>
+                                                                        
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <div class="fw-bold">Current</div>
+                                                                            <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                                                <span id="device-data-battery-current"></span> <span class="text-muted" style="font-size: 0.5em;">A</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6 col-6">
+                                                                <div class="card h-100 outline-primary">
+                                                                    <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <i class='bx bxs-bolt primary-color' style="font-size: 3rem;"></i>
+                                                                        </div>
+                                                                        
+                                                                        <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                            <div class="fw-bold">Power</div>
+                                                                            <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                                                <span id="device-data-battery-power"></span> <span class="text-muted" style="font-size: 0.5em;">W</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- battery cell voltage -->
+                                                    <div id="device-data-battery-map" class="container mb-4">
+                                                        <h5 class="card-title">Cell Information</h5>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="row g-4" id="device-data-battery-cell-voltage" style="text-align: center"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--
+                                                    <div class="row" style="margin-top: 20px;">
+                                                        <div class="card-body">
+                                                            <p class="card-text">
+                                                                Your battery is operating within optimal parameters and is performing as expected. 
+                                                                The battery system is functioning normally, with no performance issues detected. 
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    -->
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="modalExportData">
+        </div>
+
+        <div id="modalAddDevice">
+        </div>
+
+        <div class="modal fade" id="deviceDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deviceDeleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div style="text-align: left;">
+                            <h5 class="modal-title">Delete Device</h5>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                            <div class="row mb-3 mt-3" style="text-align: center;">
+                                <div class="col">
+                                    Are you sure want to <b>delete</b> this device (<span id="delete-modal-serial-number"></span>)? This action can't be undone.
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="row" style="width: -webkit-fill-available;">
+                                    <div class="col" style="text-align: left;">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+                                    <div class="col" style="text-align: right">
+                                        <button type="button" class="btn btn-outline-danger" onclick="deleteDevice()">Delete Device</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Authentication JS -->
+        <script src="./assets/js/auth.js"></script>
+        <script>
+            checkToken();
+        </script>
+
+        <!-- HTML Element Automation -->
+        <script src="./assets/js/sidebar.js"></script>
+        <script src="./assets/js/navbar.js"></script>
+        <script src="./assets/js/modalExportData.js"></script>
+        <script src="./assets/js/modalAddDevice.js"></script>
+
+        <!-- Fetching data -->
+        <script src="./assets/js/initFetch.js"></script>
+
+        <!-- Custom JS -->
+        <script>
+            function toggleSidebar() {
+                document.getElementById("floating-sidebar").classList.toggle("open");
+            }
+        </script>
+
+        <script>
+            function lastUpdateTime(isoTime) {
+                const lastDate = new Date(isoTime);
+                const now = new Date();
+                const diffMs = now - lastDate;
+
+                if (diffMs < 0) return "in the future";
+
+                const seconds = Math.floor(diffMs / 1000);
+                const minutes = Math.floor(seconds / 60);
+                const hours   = Math.floor(minutes / 60);
+                const days    = Math.floor(hours / 24);
+
+                if (days > 0) {
+                    return `${days} day${days > 1 ? "s" : ""} ${hours % 24} hour${hours % 24 > 1 ? "s" : ""} ago`;
+                } else if (hours > 0) {
+                    return `${hours} hour${hours > 1 ? "s" : ""} ${minutes % 60} minute${minutes % 60 > 1 ? "s" : ""} ago`;
+                } else if (minutes > 0) {
+                    return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+                } else {
+                    return `${seconds} second${seconds > 1 ? "s" : ""} ago`;
+                }
+            }
+
+            function getCellClass(voltage) {
+                if (voltage < 2.6) return "cell-danger";
+                if (voltage <= 2.9) return "cell-low";
+                if (voltage <= 3.2) return "cell-mid";
+                if (voltage <= 3.5) return "cell-good";
+                return "cell-full";
+            }
+
+            async function getDeviceData(SN){
+                let type = "";
+                const inverterResponse = await authGetInverter(SN);
+                let inverterData;
+                if(!inverterResponse.ok){
+                    console.log("inverter no data");
+                } else {
+                    inverterData = await inverterResponse.json();
+                }
+
+                if(inverterData.data){
+                    type = "Inverter";
+                    return [type, inverterData.data]
+                } else {}
+
+
+                const batteryResponse = await authGetBattery(SN);
+                let batteryData;
+                if(!batteryResponse.ok){
+                    console.log("no battery data")
+                } else {
+                    batteryData = await batteryResponse.json();
+                }
+
+                if(batteryData.data){
+                    type = "Battery";
+                    return [type, batteryData.data]
+                } else {}
+
+
+                return [null, null]
+            }
+
+            async function updatePage(){
+                const [deviceType, deviceData] = await getDeviceData(deviceSerialNumber);
+                console.log(deviceData)
+
+                if(!deviceType){return;}
+
+                document.getElementById('device-type').innerText = deviceType;
+                document.getElementById('device-last-update').innerText = lastUpdateTime(deviceData.dataBattery.updatedAt);
+
+                if(deviceType == 'Battery'){
+                    document.getElementById('device-data-battery').style.display = 'block';
+
+                    if(deviceData){
+                        document.getElementById('device-data-battery-soc').innerText = deviceData.dataBattery.soc;
+                        document.getElementById('device-data-battery-soh').innerText = deviceData.dataBattery.soh;
+                        document.getElementById('device-data-battery-temp').innerText = deviceData.dataBattery.temperature;
+                        document.getElementById('device-data-battery-voltage').innerText = deviceData.dataBattery.voltage;
+                        document.getElementById('device-data-battery-current').innerText = deviceData.dataBattery.current;
+                        document.getElementById('device-data-battery-energy').innerText = deviceData.dataBattery.energy;
+                        document.getElementById('device-data-battery-power').innerText = deviceData.dataBattery.power;
+                        const cellCount = deviceData.cell.length;
+
+                        document.getElementById('device-data-battery-cell-voltage').innerHTML = ``;
+
+                        for(let i=0; i<cellCount; i++){
+                            const cellData = deviceData.cell[i];
+                            const colorClass = getCellClass(cellData.voltage / 1000);
+
+                            document.getElementById('device-data-battery-cell-voltage').innerHTML += `
+
+
+                            <div class="col-xl-2 col-lg-4 col-md-4 col-3">
+                                <div class="row">
+                                    <div class="fw-bold" style="margin-bottom: 5px">Cell ${cellData.cell}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="cell-data ${colorClass}" style="font-size: clamp(1rem, 2vw, 1.75rem);">${cellData.voltage / 1000}</div>
+                                </div>
+                            </div>
+                                
+                            `;
+                        }
+                    }
+
+                    return;
+                }
+                
+                else if (deviceType == 'Inverter'){
+
+                }
+
+                else{
+                    return;
+                }
+            }
+
+            async function deleteDevice(){
+                const data = {"serial_number" : deviceSerialNumber};
+                const response = await authDeleteDevice(data);
+                const responseData = await response.json();
+
+                if(!response.ok){
+                    alert('Error to delete device');
+                } else {
+                    // refresh
+                    window.location.replace('./');
+                }
+            }
+        </script>
+
+        <!-- Page specific JS -->
+        <script>
+            // Get device serial number from url
+            const URLParams = new URLSearchParams(window.location.search);
+            const deviceSerialNumber = URLParams.get("sn");
+            document.getElementById('device-serial-number').innerText = deviceSerialNumber;
+            document.getElementById('delete-modal-serial-number').innerText = deviceSerialNumber;
+
+            // Fetch the device data
+            setInterval(updatePage, 1000);
+        </script>
+
+
+    </body>
+</html>

@@ -7,16 +7,19 @@
     height: 64px;
 }
 
-.btn-navbar{
-    padding: 6px;
-    margin-left:6px;
-    background-color: transparent;
-    border-color: transparent;
-    color: #292a31;
-    font-weight: bold;
+.btn-navbar {
+    display: flex;                 /* required for align-items & justify-content */
     align-items: center;
     justify-content: center;
+
+    padding: 6px;
+    margin-left: 0px;
+    background-color: transparent;
+    border: none;                  /* border-color: transparent → just remove */
+    color: #292a31;
+    font-weight: bold;
 }
+
 
 .btn-navbar i {
   display: block;               /* remove inline spacing from icon */

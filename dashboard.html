@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Microbess - Dashboard</title>
+
+        <!-- Font Family -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <!-- Boxicon -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/sidebar.css">
+        <link rel="stylesheet" href="./assets/css/navbar.css">
+
+        <!-- HTML to Canvas -->
+        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Floating Left Sidebar -->
+        <div class="floating" id="floating-sidebar">
+        </div>
+
+        <!-- navbar -->
+        <div id="navbar">
+        </div>
+
+
+        <!-- Content section -->
+        <section class="d-flex flex-column justify-content-center content" style="padding-bottom:0px">            
+            <div class="row" style="height: 100vh; margin: 0px;">
+                <!-- Blank column for sidebar -->
+                <!-- Content column -->
+                <div class="col">
+
+                    <!-- HOME -->
+                    <div class="row" style="margin-right:0px; margin-left: 0px; display: block;" id="home-dashboard">
+                        <div class="col" style="padding: 0px;">
+                            <div class="row" style="margin-top: 0px; margin-bottom: 15px; margin-left: 0px; margin-right: 0px;">
+                                <div class="col" style="padding: 0px;">
+                                    <h3>Dashboard</h3>
+                                </div>
+                            </div>
+
+                            <!-- Top small card -->
+                            <div class="row row-cols-1 row-cols-md-4 g-4">
+
+                                <div class="col">
+                                    <div class="card h-100" style="background: #3fbab8;
+background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 1) 100%);">
+                                        <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                            <!-- Image -->
+                                            <div class="text-center" style="flex: 0.5 0 auto;">
+                                                   <i class='bx bxs-downvote' style="font-size: 1.25rem; font-weight: bold; color: #fff;"></i>
+                                                    <br>
+                                                    <div class="fw-100" style="color: #fff;">Generated</div>
+                                                    <div style="font-size: clamp(1.25rem, 4vw, 2.5rem); color: #fff;">
+                                                        36.5 <span class="text-muted" style="font-size: 1rem; color: #fff !important;">kW</span>
+                                                    </div>
+                                            </div>
+                                            
+                                            <!-- Text -->
+                                            <div class="text-center" style="flex: 0.5 0 auto;">
+                                                    <i class='bx bxs-upvote' style="font-size: 1.25rem; font-weight: bold; color: #fff"></i>
+                                                    <br>
+                                                    <div class="fw-100" style="color: #fff;">Usage</div>
+                                                    <div style="font-size: clamp(1.25rem, 4vw, 2.5rem); color: #fff;">
+                                                       75.1 <span class="text-muted" style="font-size: 1rem; color: #fff !important;">kW</span>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                            <!-- Image -->
+                                            <div class="text-center" style="flex: 0.5 0 auto;">
+                                                <img class="top-card-image" src="./assets/img/solar-panel.png" alt="Solar Panel">
+                                            </div>
+                                            
+                                            <!-- Text -->
+                                            <div class="text-center" style="flex: 0.5 0 auto;">
+                                                <div class="fw-bold">Power Generated</div>
+                                                <div style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                    12 <span class="text-muted" style="font-size: 0.8em;">w</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                            <!-- Image -->
+                                            <div class="text-center" style="flex: 0.5 0 auto;">
+                                                <img class="top-card-image" src="./assets/img/battery.png" alt="Battery">
+                                            </div>
+                                            
+                                            <!-- Text -->
+                                            <div class="text-center" style="flex: 0.5 0 auto;">
+                                                <div class="fw-bold">State-of-Charge</div>
+                                                <div style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                    87 <span class="text-muted" style="font-size: 0.8em;">%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                            <!-- Image -->
+                                            <div class="text-center" style="flex: 0.5 0 auto;">
+                                                <img class="top-card-image" src="./assets/img/grid.png" alt="Grid">
+                                            </div>
+                                            
+                                            <!-- Text -->
+                                            <div class="text-center" style="flex: 0.5 0 auto;">
+                                                <div class="fw-bold">Import from Grid</div>
+                                                <div style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                    162 <span class="text-muted" style="font-size: 0.8em;">w</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row row-cols-1 row-cols-lg-2 g-4" style="margin-top: 0.5rem;">
+                                <div class="col-lg-8">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col"><h5 class="card-title">Power Activity </h5></div>
+                                                <div class="col" style="text-align: right;">
+                                                    <!-- Example split danger button -->
+                                                    <div class="btn-group">
+                                                    <button id="system-power-range-btn" type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        24H
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" onclick="fetchChartPower('24H', 24, 'h')">24H</a></li>
+                                                        <li><a class="dropdown-item" onclick="fetchChartPower('1W', 7, 'd')">1W</a></li>
+                                                        <li><a class="dropdown-item" onclick="fetchChartPower('1M', 30, 'd')">1M</a></li>
+                                                        <li><a class="dropdown-item" onclick="fetchChartPower('1Y', 12, 'm')">1Y</a></li>
+                                                    </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div style="width: 100%;">
+                                                        <canvas id="power-activity-chart" style="height: 300px;"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Power Composition</h5>
+                                            <p class="card-text">
+                                                Your energy usage in the last 24 hours, with proportions from solar, battery, and grid sources clearly shown here.
+                                            </p>
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div style="width: 100%;">
+                                                        <canvas id="power-composition-chart" style="height: 200px;"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="row row-cols-1 row-cols-lg-2 g-4" style="margin-top: 0.5rem;">
+                                <div class="col-lg-4">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="card h-100 voltage-card">
+                                                <div class="card-body" style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
+                                                    <div class="row" style="padding-left: 1rem; padding-right: 1rem">
+                                                        <div class="col">
+                                                            <div class="row">
+                                                                <div class="col"><h5 class="card-title" style="color: #ffffff;">Voltage </h5></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col" style="text-align: right;">
+                                                            <div class="row">
+                                                                <div class="col"><h5 id="battery-voltage-newest-value" style="color: #ffffff;">67.38 V</h5></div>
+                                                            </div>
+                                                            
+                                                            <!--
+                                                            <div class="btn-group">
+                                                                <button id="battery-voltage-range-btn" type="button" class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    24H
+                                                                </button>
+                                                                <ul class="dropdown-menu" style="overflow-y: scroll; height: 100px;">
+                                                                    <li><a class="dropdown-item" onclick="fetchChartVoltage('24H', 24, 'h')">24H</a></li>
+                                                                    <li><a class="dropdown-item" onclick="fetchChartVoltage('1W', 7, 'd')">1W</a></li>
+                                                                    <li><a class="dropdown-item" onclick="fetchChartVoltage('1M', 30, 'd')">1M</a></li>
+                                                                    <li><a class="dropdown-item" onclick="fetchChartVoltage('1Y', 12, 'm')">1Y</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" style="margin: 0px;">
+                                                        <div class="col" style="padding: 0px;">
+                                                            <div style="width: 100%; border-radius: 0.375rem;">
+                                                                <canvas id="battery-voltage-chart" style="height: 150px;"></canvas>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-top: 1.5rem;">
+                                        <div class="col">
+                                            <div class="card h-100 current-card">
+                                                <div class="card-body" style=" padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
+                                                    <div class="row" style="padding-left: 1rem; padding-right: 1rem">
+                                                        <div class="col">
+                                                            <div class="row">
+                                                                <div class="col"><h5 class="card-title">Current </h5></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col" style="text-align: right;">
+                                                            <div class="row">
+                                                                <div class="col"><h5 id="battery-current-newest-value">2.78 A</h5></div>
+                                                            </div>
+                                                            <!-- Example split danger button -->
+                                                            <!--
+                                                            <div class="btn-group">
+                                                            <button id="battery-current-range-btn" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                24H
+                                                            </button>
+                                                            <ul class="dropdown-menu" style="overflow-y: scroll; height: 100px;">
+                                                                <li><a class="dropdown-item" onclick="fetchChartCurrent('24H', 24, 'h')">24H</a></li>
+                                                                <li><a class="dropdown-item" onclick="fetchChartCurrent('1W', 7, 'd')">1W</a></li>
+                                                                <li><a class="dropdown-item" onclick="fetchChartCurrent('1M', 30, 'd')">1M</a></li>
+                                                                <li><a class="dropdown-item" onclick="fetchChartCurrent('1Y', 12, 'm')">1Y</a></li>
+                                                            </ul>
+                                                            </div>
+                                                            -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" style="margin: 0px;">
+                                                        <div class="col" style="padding: 0px;">
+                                                            <div style="width: 100%; border-radius: 0.375rem;">
+                                                                <canvas id="battery-current-chart" style="height: 150px"></canvas>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-8">
+                                    <div class="card h-100">
+                                    <div class="card-body" style="padding-bottom: 0px;">
+                                        <h5 class="card-title">Battery Information</h5>
+                                        <div class="row">
+                                            <div class="col-md-6 order-2 order-md-1" style="text-align: center; min-height: 300px;">
+                                                <div class="row">
+                                                    <div class="col big-text-card-container">
+                                                        <div style="
+                                                            font-size: clamp(2.5rem, 4vw, 4rem);
+                                                            margin-top: 2%;
+                                                            margin-bottom: -10%;"
+                                                            >
+                                                            <span class="primary-color"><i class='bx bxs-zap'></i></span>
+                                                            <span class="primary-color">72</span>
+                                                            <span class="text-muted" style="font-size: 0.5em;">%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="height: -webkit-fill-available;">
+                                                    <div class="col big-item-card-image-container">
+                                                        <img class="big-item-card-image" src="./assets/img/powerwall.webp" alt="powerwall">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 order-1 order-md-2">
+                                                <div class="product-description">
+                                                    <!--<h4 class="fw-700">Micro BESS Powerwall</h4>-->
+                                                    <br>
+
+
+                                                    <div class="row row-cols-2 g-4">
+                                                        <div class="col">
+                                                            <div class="card h-100 outline-primary">
+                                                                <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">                                                                
+                                                                    <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                        <i class='bx bxs-shield-plus primary-color' style="font-size: 3rem;"></i>
+                                                                    </div>
+                                                                    
+                                                                    <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                        <div class="fw-bold">SOH</div>
+                                                                        <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                                            87 <span class="text-muted" style="font-size: 0.5em;">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col">
+                                                            <div class="card h-100 outline-primary">
+                                                                <div class="card-body d-flex flex-wrap align-items-center justify-content-center gap-3">
+                                                                    <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                        <i class='bx bxs-thermometer primary-color' style="font-size: 3rem;"></i>
+                                                                    </div>
+                                                                    
+                                                                    <div class="text-center" style="flex: 0.5 0 auto;">
+                                                                        <div class="fw-bold">Temp</div>
+                                                                        <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
+                                                                            32 <span class="text-muted" style="font-size: 0.5em;">&deg;C</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row" style="margin-top: 20px;">
+                                                        <div class="card-body">
+                                                            <p class="card-text">
+                                                                Your battery is operating within optimal parameters and is performing as expected. 
+                                                                The battery system is functioning normally, with no performance issues detected. 
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Footer -->
+
+                            <div class="row row-cols-1 row-cols-lg-1 g-4" style="margin-top: 0.5rem;">
+                                <div class="col">
+
+                                    <div class="card h-100 bg-primary" style="color: #fff; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
+                                        <div class="card-body" style="padding: 0px;">
+                                            <div class="row" style="padding: 20px;">
+                                                <div class="col" style="text-align: center;">
+                                                    <!-- logo -->
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <img src="./assets/img/logo-bg-prime.png" style="max-height: 12px; width: auto; object-fit: contain; vertical-align: baseline;" alt="Logo UNS">@2025
+                                                        </div>
+                                                    </div>
+                                                    <!--
+
+                                                    <div class="row" style="margin-top: 20px;">
+                                                        <p class="card-text">
+                                                        Micro BESS is a compact, smart battery energy storage solution designed to give you reliable power anytime, anywhere. 
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="row" style="margin-top: 20px;">
+                                                        <p class="card-text">
+                                                            Jalan Ir. Sutami 36 Kentingan, Jebres, Surakarta, <br>Jawa Tengah. Indonesia 57126.
+                                                        </p>
+                                                    </div>
+                                                    -->
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="modalExportData">
+        </div>
+
+        <div id="modalAddDevice">
+        </div>
+
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Authentication JS -->
+        <script src="./assets/js/auth.js"></script>
+        <script>
+            checkToken();
+        </script>
+
+        <!-- HTML Element Automation -->
+        <script src="./assets/js/sidebar.js"></script>
+        <script src="./assets/js/navbar.js"></script>
+        <script src="./assets/js/modalExportData.js"></script>
+        <script src="./assets/js/modalAddDevice.js"></script>
+
+        <!-- Fetching data -->
+        <script src="./assets/js/initFetch.js"></script>
+
+        <!-- Custom JS -->
+        <script>
+            function toggleSidebar() {
+                document.getElementById("floating-sidebar").classList.toggle("open");
+            }
+        </script>
+
+
+        <script>
+            function generateRandomData(type, dataLength, format){
+                // Dummy value generator
+                const data = [];
+                const now = new Date();
+
+                for (let i = 0; i < dataLength; i++) {
+                    let label;
+
+                    switch (format) {
+                        case "h": // hours
+                            label = new Date(now.getTime() - (dataLength - i - 1) * 3600 * 1000)
+                                .toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                            break;
+                        case "d": // days
+                            label = new Date(now.getTime() - (dataLength - i - 1) * 24 * 3600 * 1000)
+                                .toLocaleDateString();
+                            break;
+                        case "w": // weeks
+                            label = `Week ${new Date(now.getTime() - (dataLength - i - 1) * 7 * 24 * 3600 * 1000)
+                                .getWeekNumber()}`;
+                            break;
+                        case "m": // months
+                            label = new Date(now.getFullYear(), now.getMonth() - (dataLength - i - 1))
+                                .toLocaleString('default', { month: 'short', year: 'numeric' });
+                            break;
+                        default:
+                            label = i.toString();
+                    }
+
+                    // Dummy voltage between 210V and 240V
+                    let randomData;
+                    switch (type) {
+                        case 'voltage':
+                            randomData = Math.round(210 + Math.random() * 30);
+                            break;
+                        case 'current':
+                            randomData = (1 + (Math.random() * 20) / 10).toFixed(1); // 1 decimal place
+                            break;
+                        case 'power':
+                            randomData = Math.round(10 + Math.random() * 30);
+                            break;
+                    }
+
+                    data.push({
+                        label: label,
+                        values: randomData
+                    });
+
+                }
+
+
+                return data;
+            }
+
+            // Extra helper to get week number
+            Date.prototype.getWeekNumber = function () {
+                const firstDay = new Date(this.getFullYear(), 0, 1);
+                const pastDays = Math.floor((this - firstDay) / 86400000);
+                return Math.ceil((pastDays + firstDay.getDay() + 1) / 7);
+            };
+        </script>
+
+        <script src="./assets/js/chartVoltage.js"></script>
+        <script src="./assets/js/chartCurrent.js"></script>
+        <script src="./assets/js/chartPower.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // fetch initial graph
+                fetchChartPower("24H", 24, 'h');
+                fetchChartVoltage("24H", 24, 'h');
+                fetchChartCurrent("24H", 24, 'h');
+
+                // export selection
+                const rangeSelect = document.getElementById('rangeSelect');
+                const customRange = document.getElementById('customRange');
+                rangeSelect.addEventListener('change', function() {
+                    if (this.value === 'custom') {
+                        customRange.style.display = 'block';
+                    } else {
+                        customRange.style.display = 'none';
+                    }
+                });
+
+                // export button
+                const exportButton = document.getElementById('export-button');
+                const startDateElement = document.getElementById('startDate');
+                const endDateElement = document.getElementById('endDate');
+                exportButton.addEventListener('click', function() {
+                    console.log("Start Date : " + String(startDateElement.value));
+                    console.log("End Date : " + String(endDateElement.value));
+                });
+            });
+        </script>
+
+
+        <script>
+        const ctx = document.getElementById('power-composition-chart').getContext('2d');
+
+        new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Battery', 'Grid', 'Solar'],
+            datasets: [{
+            data: [20, 35, 45], // example percentages
+            backgroundColor: [
+                '#EE5A72', // Solar - yellow
+                '#042C48', // Battery
+                '#159997'  // Grid - red
+            ],
+            borderColor: [
+                '#EE5A72',
+                '#042C48',
+                '#159997'
+            ],
+            borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+            legend: {
+                display: false,
+                position: 'bottom'
+            },
+            tooltip: {
+                callbacks: {
+                label: function(context) {
+                    return `${context.label}: ${context.parsed}%`;
+                }
+                }
+            }
+            }
+        }
+        });
+        </script>
+
+
+    <script>
+        function screenshot(){
+            html2canvas(document.body, {
+                backgroundColor: "#F3F6F9", // Force background color
+                useCORS: true,
+                windowWidth: document.documentElement.scrollWidth,
+                windowHeight: document.documentElement.scrollHeight
+            }).then(canvas => {
+                const link = document.createElement("a");
+                link.download = "fullpage_screenshot.png";
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+            });
+        }
+    </script>
+
+    </body>
+</html>

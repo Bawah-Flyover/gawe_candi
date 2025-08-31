@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Registration</title>
   <link rel="stylesheet" href="./assets/css/auth.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-  <div class="wrapper" id="login-form" style="display: block;">
-    <header>Login</header>
+  <div id="registration-form" class="wrapper" style="display: block;">
+    <header>Register</header>
     <form action="#">
+      <div class="field name">
+        <div class="input-area">
+          <input type="text" placeholder="Full Name">
+          <i class="icon fas fa-user"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Name can't be blank</div>
+      </div>
 
       <div class="field email">
         <div class="input-area">
@@ -21,7 +29,7 @@
         </div>
         <div class="error error-txt">Email can't be blank</div>
       </div>
-
+      
       <div class="field password">
         <div class="input-area">
           <input type="password" placeholder="Password">
@@ -31,26 +39,33 @@
         <div class="error error-txt">Password can't be blank</div>
       </div>
 
-      <!--<div class="pass-txt"><a href="#">Forgot password?</a></div>-->
-      <div id="submit-button">
-        <input type="submit" value="Login" onclick="loginApp()">
+      <div class="field confirm-password">
+        <div class="input-area">
+          <input type="password" placeholder="Confirm Password">
+          <i class="icon fas fa-lock"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Confirm Password can't be blank</div>
       </div>
 
+      <div id="submit-button">
+        <input type="submit" value="Register" onclick="registerApp()">
+      </div>
     </form>
-
-    <div class="sign-txt">Not a member? <a href="./register.html">Signup</a></div>
+    <div class="sign-txt">Already a member? <a href="./login_v2.html">Login</a></div>
   </div>
 
-  <div id="login-result-success" class="wrapper" style="display: none;">
+  <div id="registration-result-success" class="wrapper" style="display: none;">
     <form>
       <i class="fa-regular fa-circle-check"></i>
       <br>
-      Login success!<br>Redirecting to dashboard.
+      Congratulation!<br>Your account has been succesfully created.
+      <input type="button" value="Login now" onclick="window.location.href='./login_v2.html'">
     </form>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script src="./assets/js/auth.js"></script>
-  <script src="./assets/js/login_v2.js"></script>
+  <script src="./assets/js/register.js"></script>
 </body>
 </html>

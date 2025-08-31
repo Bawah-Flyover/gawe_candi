@@ -1,0 +1,61 @@
+<div class="row" style="height: 64px; width: -webkit-fill-available; margin: 0px;">
+    <div class="col" style="padding: 0px;">
+        <nav class="navbar">
+            <!-- Logo on small screen -->
+            <div class="col" style="text-align: left;">
+                <form class="container-fluid justify-content-start logo-container" style="width: 200px; margin: 0px;">
+                    <img class="logo" src="./assets/img/logo.png" onclick="window.location.replace('./')" style="width: 150px; align-items: center; justify-content: left;">
+                </form>
+            </div>
+
+            <div class="col" style="text-align: right;">
+                <div class="row" style="width: 100%;">
+                    <div class="col btn-sidebar-toggle">
+                        <form class="container-fluid justify-content-start" style="width: fit-content; margin-right: 0px;">
+                            <div class="row">
+                                <div class="col" style="padding: 0px;">
+                                    <button class="btn btn-navbar " type="button" onclick="toggleSidebar()"><i class='bx bx-menu'></i></button>
+                                </div>
+                                <div class="col" style="padding: 0px;">
+                                    <div class="dropdown ms-auto">
+                                        <button class="btn btn-navbar dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <div class="row align-items-center">
+                                                <div class="col" id="auth-user-icon-toggle">
+                                                    <i class='bx bx-user-circle'></i>
+                                                </div>
+                                            </div>
+                                        </button>
+                                        <ul class="dropdown-menu" style="right: 0; left: auto;">
+                                            <!--<li><a class="dropdown-item" href="./profile.html">My Profile</a></li>-->
+                                            <li><a class="dropdown-item" onclick="authLogout()">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col btn-sidebar-non-toggle">
+                        <form class="container-fluid justify-content-start" style="width: fit-content; margin-right: 0px;">
+                            <div class="dropdown ms-auto">
+                                <button class="btn btn-navbar dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="row align-items-center">
+                                        <div class="col-2" id="auth-user-icon">
+                                            <i class='bx bx-user-circle'></i>
+                                        </div>
+                                        <div class="col" id="auth-user-full-name">
+                                        </div>
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu" style="right: 0;">
+                                    <!--<li><a class="dropdown-item" href="./profile.html">My Profile</a></li>-->
+                                    <li><a class="dropdown-item" onclick="authLogout()">Logout</a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+</div>

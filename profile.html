@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Microbess - Profile</title>
+        <!-- Font Family -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <!-- Boxicon -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/sidebar.css">
+        <link rel="stylesheet" href="./assets/css/navbar.css">
+    </head>
+    <body>
+        <!-- Floating Left Sidebar -->
+        <div class="floating" id="floating-sidebar">
+        </div>
+
+        <!-- navbar -->
+        <div id="navbar">
+        </div>
+
+        <!-- Content section -->
+        <section class="d-flex flex-column justify-content-center content" style="padding-bottom:0px">            
+            <div class="row" style="height: 100vh; margin: 0px;">
+                <!-- Blank column for sidebar -->
+                <!-- Content column -->
+                <div class="col">
+
+                    <div class="row" style="margin-right:0px; margin-left: 0px; display: block;" id="home-dashboard">
+                        <div class="col" style="padding: 0px;">
+                            <!-- Page Title -->
+                            <div class="row" style="margin-top: 0px; margin-bottom: 15px; margin-left: 0px; margin-right: 0px;">
+                                <div class="col" style="padding: 0px;">
+                                    <h3>My Profile</h3>
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-body" style="padding-bottom: 0px; padding-bottom: 20px;">
+                                            <!-- user icon -->
+                                            <div class="row align-items-center">
+                                                <div class="col-3" style="font-size: 48px;">
+                                                    <i class='bx bxs-user-circle'></i>
+                                                </div>
+                                                <div class="col">
+                                                    <h4>User Information</h4>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-size: 1rem;">
+                                                <div class="col">
+                                                    <hr>
+                                                    <div class="row align-items-center my-3">
+                                                        <div class="col-md-3 fw-bold">Email Account</div>
+                                                        <div class="col" id="profile-user-email"></div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row align-items-center my-3">
+                                                        <div class="col-md-3 fw-bold">Password</div>
+                                                        <div class="col-md-6">****</div>
+                                                        <div class="col-md-3" style="text-align: right;">
+                                                            <button type="button" class="btn btn-outline-danger" data-bs-target="#changePasswordModal" data-bs-toggle="modal">Change Password</button>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="modalExportData">
+        </div>
+
+        <div id="modalAddDevice">
+        </div>
+
+        <div class="modal fade" id="changePasswordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div style="text-align: left;">
+                            <h5 class="modal-title">Change Password</h5>
+                            <div class="form-text">Change to a new password</div>
+                        </div>
+                    </div>
+                    <div class="modal-body" id="modal-change-password-body">
+                        <div class="mb-4">
+                            <div class="row">
+                                <div class="col-md-5"><div class="form-label text-muted">Current Password :</div></div>
+                                <div class="col-md-7"><input class="form-control" type="password" id="change-pw-current"></div>
+                            </div>
+                            <div id="current-pw-alert-blank" class="row mt-2 pw-alert" style="color: red; text-align: right; display: none;">
+                                <div class="col">
+                                    <i class='bx bx-error-circle'></i> Password can't be blank
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="row">
+                                <div class="col-md-5"><div class="form-label text-muted">New Password :</div></div>
+                                <div class="col-md-7"><input class="form-control" type="password" id="change-pw-new"></div>
+                            </div>
+                            <div id="new-pw-alert-not-match" class="row mt-2 pw-alert" style="color: red; text-align: right; display: none;">
+                                <div class="col">
+                                    <i class='bx bx-error-circle'></i> Password is not match
+                                </div>
+                            </div>
+                            <div id="new-pw-alert-blank" class="row mt-2 pw-alert" style="color: red; text-align: right; display: none;">
+                                <div class="col">
+                                    <i class='bx bx-error-circle'></i> Password can't be blank
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="row">
+                                <div class="col-md-5"><div class="form-label text-muted">Confirm New Password :</div></div>
+                                <div class="col-md-7"><input class="form-control" type="password" id="change-pw-confirm-new"></div>
+                            </div>
+                            <div id="confirm-new-pw-alert-not-match" class="row mt-2 pw-alert" style="color: red; text-align: right; display: none;">
+                                <div class="col">
+                                    <i class='bx bx-error-circle'></i> Password is not match
+                                </div>
+                            </div>
+                            <div id="confirm-new-pw-alert-blank" class="row mt-2 pw-alert" style="color: red; text-align: right; display: none;">
+                                <div class="col">
+                                    <i class='bx bx-error-circle'></i> Password can't be blank
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" id="modal-change-password-footer">
+                        <div class="row" style="width: -webkit-fill-available;">
+                            <div class="col" style="text-align: left;">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="col" style="text-align: right">
+                                <button type="button" class="btn btn-primary" onclick="changePassword()">Change Password</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+        <!-- Authentication JS -->
+        <script src="./assets/js/auth.js"></script>
+        <script>
+            checkToken();
+        </script>
+
+        <!-- HTML Element Automation -->
+        <script src="./assets/js/sidebar.js"></script>
+        <script src="./assets/js/navbar.js"></script>
+        <script src="./assets/js/modalExportData.js"></script>
+        <script src="./assets/js/modalAddDevice.js"></script>
+
+        <!-- Fetching data -->
+        <script src="./assets/js/initFetch.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                
+            });
+        </script>
+
+        <!-- Custom JS -->
+        <script>
+            function toggleSidebar() {
+                document.getElementById("floating-sidebar").classList.toggle("open");
+            }
+
+            async function changePassword() {
+                // hide all alert
+                const changePasswordAlertList = document.getElementsByClassName('pw-alert');
+                for (let el of changePasswordAlertList) {
+                    el.style.display = "none";
+                }
+
+                // check if current password is blank
+                const currentPassword = document.getElementById('change-pw-current').value;
+                if(!currentPassword){
+                    document.getElementById('current-pw-alert-blank').style.display = 'block';
+                    return;
+                }
+
+                // check is password is blank
+                const newPassword = document.getElementById('change-pw-new').value;
+                if(!newPassword){
+                    document.getElementById('new-pw-alert-blank').style.display = 'block';
+                    return;
+                }
+
+                const confirmNewPassword = document.getElementById('change-pw-confirm-new').value;
+                if(!confirmNewPassword){
+                    document.getElementById('confirm-new-pw-alert-blank').style.display = 'block';
+                    return;
+                }
+
+                // check if new password is not match
+                if(newPassword !== confirmNewPassword){
+                    document.getElementById('new-pw-alert-not-match').style.display = 'block';
+                    document.getElementById('confirm-new-pw-alert-not-match').style.display = 'block';
+                    return;
+                }
+
+                // if everything is ok, let's register the new password
+                let changePasswordData = {
+                    "current_password": currentPassword,
+                    "new_password": newPassword,
+                    "new_password_confirmation": confirmNewPassword
+                }
+
+                const response = await authChangePassword(changePasswordData);
+                const responseData = await response.json();
+
+                if(!response.ok){
+                    alert(`Error to change password! \n\nDescription: ${responseData.message}`);
+                }
+                else{
+                    document.getElementById('modal-change-password-footer').style.display = 'none';
+                    document.getElementById('modal-change-password-body').innerHTML = `
+                        <div class="row mb-3" style="text-align:center">
+                            <div class="col" style="text-align: center">
+                                Your password is succesfully changed!
+                            </div>
+                        </div>
+                        <div class="row mb-3" style="text-align:center">
+                            <div class="col" style="text-align: center">
+                                <div class="col" style="text-align: center;">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    //window.location.replace('./profile.html');
+                }
+
+            }
+        </script>
+
+
+    </body>
+</html>

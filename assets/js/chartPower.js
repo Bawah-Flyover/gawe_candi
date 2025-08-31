@@ -113,7 +113,7 @@ function plotPowerActivityChart(labels, values1, values2, values3) {
                     beginAtZero: false,
                     title: {
                         display: true,
-                        text: "Energy (kW)",
+                        text: "Energy (kWh)",
                         color: '#000',
                     },
                     ticks: {

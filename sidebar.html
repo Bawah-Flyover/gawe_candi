@@ -1,0 +1,84 @@
+<div class="row" style="height: 64px; text-align: center; margin: 0px; align-items: center; justify-content: center;">
+    <div class="col">
+    </div>
+</div>
+
+<div class="row" style="margin:10px; border-radius: 15px;">
+    <div class="col">
+        <!-- Default Sidebar -->
+        <div class="row">
+            <div class="col" style="text-align: center;">
+                <!-- Main menu section -->
+                <div class="row" style="text-align: left;">
+                    <div class="col sidebar-section-title text-muted" style="font-size:12px; padding-left:0px; margin-top: 0px;">
+                        Menu
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <button type="button" id="btn-menu-dashboard" class="btn btn-sidebar" onclick="window.location.replace('./dashboard.html')">
+                                <div class="row align-items-center">
+                                    <div class="col-2" style="margin-bottom: -4px;">
+                                        <i class='bx bx-home'></i>
+                                    </div>
+                                    <div class="col">
+                                        &ensp; Dashboard
+                                    </div>
+                                </div>                                
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button type="button" id="btn-menu-profile" class="btn btn-sidebar" onclick="window.location.replace('./profile.html')">
+                                <div class="row align-items-center">
+                                    <div class="col-2" style="margin-bottom: -4px;">
+                                        <i class='bx bx-user'></i>
+                                    </div>
+                                    <div class="col">
+                                        &ensp; Profile
+                                    </div>
+                                </div>                                
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button type="button" id="btn-menu-add-device" class="btn btn-sidebar" data-bs-target="#addDeviceModal" data-bs-toggle="modal">
+                                <div class="row align-items-center">
+                                    <div class="col-2" style="margin-bottom: -4px;">
+                                        <i class='bx bx-plus'></i>
+                                    </div>
+                                    <div class="col">
+                                        &ensp; Add Device
+                                    </div>
+                                </div>                                
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button type="button" id="btn-menu-export-data" class="btn btn-sidebar" data-bs-target="#exportModal" data-bs-toggle="modal">
+                                <div class="row align-items-center">
+                                    <div class="col-2" style="margin-bottom: -4px;">
+                                        <i class='bx bx-export'></i>
+                                    </div>
+                                    <div class="col">
+                                        &ensp; Export Data
+                                    </div>
+                                </div>                                
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="text-align: left;">
+                    <div class="col sidebar-section-title text-muted" style="font-size:12px; padding-left:0px">
+                        Device List
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col dynamic-sidebar" id="dynamic-sidebar">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

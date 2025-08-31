@@ -52,6 +52,10 @@ p  { font-size: 1rem; font-weight: 400; }    /* ~16px */
     background-color: #268d8b !important;
 }
 
+.text-white{
+    color: #fff;
+}
+
 /* =====================================================
  * Button
  * =====================================================
@@ -181,11 +185,95 @@ p  { font-size: 1rem; font-weight: 400; }    /* ~16px */
 }
 
 .big-item-card-image-container img{
-    margin-top: -20%;
+    margin-top: -15%;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%) translateY(20%);
     object-fit: contain;
     object-position: center top;
+}
+
+.voltage-card{
+    background: #54849e; 
+    background: linear-gradient(90deg, rgba(84, 132, 158, 1) 0%, rgba(4, 44, 72, 1) 100%);
+}
+
+.current-card{
+    background: #d6c090;
+    background: linear-gradient(90deg, rgba(214, 192, 144, 1) 0%, rgba(166, 142, 94, 1) 100%);
+}
+
+/* =====================================================
+ * Modal
+ * =====================================================
+*/
+
+.modal-title{
+    font-weight: 800 !important;
+    line-height: 1.2;
+}
+
+.form-label{
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.02rem;
+}
+
+.form-text{
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.form-select{
+    font-weight: 200;
+    font-size: inherit;
+}
+
+option{
+    font-size: inherit;
+    font-weight: 200;
+}
+
+input[type="date"]{
+    width: 100%;
+    padding: .375rem 2.25rem .375rem .75rem;
+    color: var(--bs-body-color);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+
+
+.cell-data{
+    font-size: clamp(1rem, 2vw, 1.75rem);
+    background-color: #000;
+    padding: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: -webkit-fill-available;
+}
+
+.cell-danger {
+  background-color: #ff4d4d;
+  color: #ffffff;
+}
+.cell-low {
+  background-color: #ffcc66;
+  color: #000000;
+}
+.cell-mid {
+  background-color: #e6f7f7;
+  color: #000000;
+}
+.cell-good {
+  background-color: #80d4cc;
+  color: #000000;
+}
+.cell-full {
+  background-color: #159997;
+  color: #ffffff;
 }

@@ -1,7 +1,7 @@
 // Parameter        dataLength : How many data that server will serve
 // Parameter        format : data in format hour, day, week, or month
 async function fetchChartVoltage(label, dataLength = 24, format = "h") {
-    document.getElementById("battery-voltage-range-btn").innerText = label;
+    //document.getElementById("battery-voltage-range-btn").innerText = label;
 
     try {
         const data = generateRandomData('voltage', dataLength, format);

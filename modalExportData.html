@@ -1,0 +1,56 @@
+<div class="modal fade" id="exportModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div style="text-align: left;">
+                    <h5 class="modal-title">Export Monitoring Data</h5>
+                    <div class="form-text">Download data to your computer</div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="mb-4">
+                    <div class="form-label text-muted">FILE FORMAT :</div>
+                    <div class="form-text">
+                        .csv
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="form-label text-muted">DATA RANGE : </div>
+                    <select id="rangeSelect" class="form-select" aria-label="Select data range">
+                        <option selected>Select data range</option>
+                        <option value="24H">Last 24H</option>
+                        <option value="1W">Last 1 Week</option>
+                        <option value="1M">Last 1 Month</option>
+                        <option value="All">All</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                <!-- hidden custom range element -->
+                <div class="mb-4">
+                    <div id="customRange" style="display:none; margin-top:10px;">
+                        <div class="mb-4">
+                            <label class="form-label text-muted">START DATE :</label>
+                            <br>
+                            <input type="date" id="startDate">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-muted">END DATE :</label>
+                            <br>
+                            <input type="date" id="endDate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row" style="width: -webkit-fill-available;">
+                    <div class="col" style="text-align: left;">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    <div class="col" style="text-align: right">
+                        <button type="button" id="export-button" class="btn btn-primary">Export Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,43 +1,100 @@
 const form = document.querySelector("form");
-eField = form.querySelector(".email"),
-eInput = eField.querySelector("input"),
-pField = form.querySelector(".password"),
-pInput = pField.querySelector("input");
-form.onsubmit = (e)=>{
-  e.preventDefault(); //preventing from form submitting
-  //if email and password is blank then add shake class in it else call specified function
-  (eInput.value == "") ? eField.classList.add("shake", "error") : checkEmail();
-  (pInput.value == "") ? pField.classList.add("shake", "error") : checkPass();
-  setTimeout(()=>{ //remove shake class after 500ms
-    eField.classList.remove("shake");
-    pField.classList.remove("shake");
-  }, 500);
-  eInput.onkeyup = ()=>{checkEmail();} //calling checkEmail function on email input keyup
-  pInput.onkeyup = ()=>{checkPass();} //calling checkPassword function on pass input keyup
-  function checkEmail(){ //checkEmail function
-    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; //pattern for validate email
-    if(!eInput.value.match(pattern)){ //if pattern not matched then add error and remove valid class
-      eField.classList.add("error");
-      eField.classList.remove("valid");
-      let errorTxt = eField.querySelector(".error-txt");
-      //if email value is not empty then show please enter valid email else show Email can't be blank
-      (eInput.value != "") ? errorTxt.innerText = "Enter a valid email address" : errorTxt.innerText = "Email can't be blank";
-    }else{ //if pattern matched then remove error and add valid class
-      eField.classList.remove("error");
-      eField.classList.add("valid");
+const eField = form.querySelector(".email"),
+      eInput = eField.querySelector("input");
+const pField = form.querySelector(".password"),
+      pInput = pField.querySelector("input");
+
+const token = localStorage.getItem("authToken");
+
+// if there is already a token, go to dashboard
+if(token){
+  window.location.replace("./");
+}
+
+async function loginApp() {
+  form.onsubmit = async (e) => {   // ⬅ make this async
+    e.preventDefault(); // preventing form from submitting
+
+    // if email and password are blank then add shake class, else call check functions
+    (eInput.value === "") ? eField.classList.add("shake", "error") : checkEmail();
+    (pInput.value === "") ? pField.classList.add("shake", "error") : checkPass();
+
+    setTimeout(() => { // remove shake class after 500ms
+      eField.classList.remove("shake");
+      pField.classList.remove("shake");
+    }, 500);
+
+    // call validations on keyup
+    eInput.onkeyup = () => checkEmail();
+    pInput.onkeyup = () => checkPass();
+
+    // inner functions
+    function checkEmail() {
+      let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!eInput.value.match(pattern)) {
+        eField.classList.add("error");
+        eField.classList.remove("valid");
+        let errorTxt = eField.querySelector(".error-txt");
+        (eInput.value !== "") 
+          ? errorTxt.innerText = "Enter a valid email address" 
+          : errorTxt.innerText = "Email can't be blank";
+      } else {
+        eField.classList.remove("error");
+        eField.classList.add("valid");
+      }
+    }
+
+    function checkPass() {
+      if (pInput.value === "") {
+        pField.classList.add("error");
+        pField.classList.remove("valid");
+      } else {
+        pField.classList.remove("error");
+        pField.classList.add("valid");
+      }
+    }
+
+    // if no errors → proceed to login
+    if (!eField.classList.contains("error") && !pField.classList.contains("error")) {
+      const loginJSON = {
+        email: eInput.value,
+        password: pInput.value,
+      };
+
+      try {
+        await login(loginJSON);  // now works fine
+      } catch (err) {
+        console.error("Login failed:", err);
+      }
     }
   }
-  function checkPass(){ //checkPass function
-    if(pInput.value == ""){ //if pass is empty then add error and remove valid class
-      pField.classList.add("error");
-      pField.classList.remove("valid");
-    }else{ //if pass is empty then remove error and add valid class
-      pField.classList.remove("error");
-      pField.classList.add("valid");
-    }
+}
+
+
+async function login(data){
+  console.log("login . . .")
+  document.getElementById('submit-button').innerHTML = `
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  `;
+  
+  const response = await authLogin(data);
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+    return;
   }
-  //if eField and pField doesn't contains error class that mean user filled details properly
-  if(!eField.classList.contains("error") && !pField.classList.contains("error")){
-    window.location.href = form.getAttribute("action"); //redirecting user to the specified url which is inside action attribute of form tag
+
+  const result = await response.json()
+
+  if (result.token) {
+    // Save both
+    localStorage.setItem("authToken", result.token);
+
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('login-result-success').style.display = 'block';
+
+    window.location.href ="./index.html";
   }
 }
