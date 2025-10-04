@@ -60,7 +60,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                                     <br>
                                                     <div class="fw-100" style="color: #fff;">Generated</div>
                                                     <div style="font-size: clamp(1.25rem, 4vw, 2.5rem); color: #fff;">
-                                                        36.5 <span class="text-muted" style="font-size: 1rem; color: #fff !important;">kW</span>
+                                                        <span id="dashboard-top-generated">NaN</span><span class="text-muted" style="font-size: 1rem; color: #fff !important;">kW</span>
                                                     </div>
                                             </div>
                                             
@@ -70,7 +70,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                                     <br>
                                                     <div class="fw-100" style="color: #fff;">Usage</div>
                                                     <div style="font-size: clamp(1.25rem, 4vw, 2.5rem); color: #fff;">
-                                                       75.1 <span class="text-muted" style="font-size: 1rem; color: #fff !important;">kW</span>
+                                                       <span id="dashboard-top-usage">NaN</span> <span class="text-muted" style="font-size: 1rem; color: #fff !important;">kW</span>
                                                     </div>
                                             </div>
                                         </div>
@@ -89,7 +89,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                             <div class="text-center" style="flex: 0.5 0 auto;">
                                                 <div class="fw-bold">Power Generated</div>
                                                 <div style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                    12 <span class="text-muted" style="font-size: 0.8em;">w</span>
+                                                    <span id="dashboard-top-pv">NaN</span> <span class="text-muted" style="font-size: 0.8em;">w</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,7 +110,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                             <div class="text-center" style="flex: 0.5 0 auto;">
                                                 <div class="fw-bold">State-of-Charge</div>
                                                 <div style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                    87 <span class="text-muted" style="font-size: 0.8em;">%</span>
+                                                    <span id="dashboard-top-soc">NaN</span> <span class="text-muted" style="font-size: 0.8em;">%</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,7 +129,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                             <div class="text-center" style="flex: 0.5 0 auto;">
                                                 <div class="fw-bold">Import from Grid</div>
                                                 <div style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                    162 <span class="text-muted" style="font-size: 0.8em;">w</span>
+                                                    <span id="dashboard-top-import">NaN</span> <span class="text-muted" style="font-size: 0.8em;">w</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -139,7 +139,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
 
                             <div class="row row-cols-1 row-cols-lg-2 g-4" style="margin-top: 0.5rem;">
                                 <div class="col-lg-8">
-                                    <div class="card h-100">
+                                    <div class="card h-100 position-relative">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col"><h5 class="card-title">Power Activity </h5></div>
@@ -167,11 +167,16 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        <!-- Transparent overlay that blocks clicks and shows text -->
+                                        <div class="overlay-block">
+                                            <span class="overlay-text">No Data</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4">
-                                    <div class="card h-100">
+                                    <div class="card h-100 position-relative">
                                         <div class="card-body">
                                             <h5 class="card-title">Power Composition</h5>
                                             <p class="card-text">
@@ -186,6 +191,11 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <!-- Transparent overlay that blocks clicks and shows text -->
+                                        <div class="overlay-block">
+                                            <span class="overlay-text">No Data</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +205,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                 <div class="col-lg-4">
                                     <div class="row">
                                         <div class="col">
-                                            <div class="card h-100 voltage-card">
+                                            <div class="card h-100 voltage-card position-relative">
                                                 <div class="card-body" style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
                                                     <div class="row" style="padding-left: 1rem; padding-right: 1rem">
                                                         <div class="col">
@@ -232,50 +242,46 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- Transparent overlay that blocks clicks and shows text -->
+                                                <div class="overlay-block">
+                                                    <span class="overlay-text">No Data</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row" style="margin-top: 1.5rem;">
                                         <div class="col">
-                                            <div class="card h-100 current-card">
-                                                <div class="card-body" style=" padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
+                                            <div class="card h-100 current-card position-relative">
+                                                <div class="card-body" style="padding-bottom: 0; padding-left: 0; padding-right: 0;">
                                                     <div class="row" style="padding-left: 1rem; padding-right: 1rem">
                                                         <div class="col">
                                                             <div class="row">
-                                                                <div class="col"><h5 class="card-title">Current </h5></div>
+                                                                <div class="col"><h5 class="card-title">Current</h5></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col" style="text-align: right;">
+                                                        <div class="col text-end">
                                                             <div class="row">
                                                                 <div class="col"><h5 id="battery-current-newest-value">2.78 A</h5></div>
                                                             </div>
-                                                            <!-- Example split danger button -->
-                                                            <!--
-                                                            <div class="btn-group">
-                                                            <button id="battery-current-range-btn" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                24H
-                                                            </button>
-                                                            <ul class="dropdown-menu" style="overflow-y: scroll; height: 100px;">
-                                                                <li><a class="dropdown-item" onclick="fetchChartCurrent('24H', 24, 'h')">24H</a></li>
-                                                                <li><a class="dropdown-item" onclick="fetchChartCurrent('1W', 7, 'd')">1W</a></li>
-                                                                <li><a class="dropdown-item" onclick="fetchChartCurrent('1M', 30, 'd')">1M</a></li>
-                                                                <li><a class="dropdown-item" onclick="fetchChartCurrent('1Y', 12, 'm')">1Y</a></li>
-                                                            </ul>
-                                                            </div>
-                                                            -->
                                                         </div>
                                                     </div>
 
-                                                    <div class="row" style="margin: 0px;">
-                                                        <div class="col" style="padding: 0px;">
+                                                    <div class="row m-0">
+                                                        <div class="col p-0">
                                                             <div style="width: 100%; border-radius: 0.375rem;">
                                                                 <canvas id="battery-current-chart" style="height: 150px"></canvas>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <!-- Transparent overlay that blocks clicks and shows text -->
+                                                <div class="overlay-block">
+                                                    <span class="overlay-text">No Data</span>
+                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
 
@@ -294,8 +300,8 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                                             margin-top: 2%;
                                                             margin-bottom: -10%;"
                                                             >
-                                                            <span class="primary-color"><i class='bx bxs-zap'></i></span>
-                                                            <span class="primary-color">72</span>
+                                                            <span class="primary-color" id="dashboard-battery-chg-status" style="display: none;"><i class='bx bxs-zap'></i></span>
+                                                            <span class="primary-color" id="dashboard-battery-soc">NaN</span>
                                                             <span class="text-muted" style="font-size: 0.5em;">%</span>
                                                         </div>
                                                     </div>
@@ -323,7 +329,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                                                     <div class="text-center" style="flex: 0.5 0 auto;">
                                                                         <div class="fw-bold">SOH</div>
                                                                         <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                                            87 <span class="text-muted" style="font-size: 0.5em;">%</span>
+                                                                            <span id="dashboard-battery-soh"></span> <span class="text-muted" style="font-size: 0.5em;">%</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -340,7 +346,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                                                     <div class="text-center" style="flex: 0.5 0 auto;">
                                                                         <div class="fw-bold">Temp</div>
                                                                         <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                                            32 <span class="text-muted" style="font-size: 0.5em;">&deg;C</span>
+                                                                            <span id="dashboard-battery-temp"></span> <span class="text-muted" style="font-size: 0.5em;">&deg;C</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -351,10 +357,10 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
 
                                                     <div class="row" style="margin-top: 20px;">
                                                         <div class="card-body">
-                                                            <p class="card-text">
+                                                            <!--<p class="card-text">
                                                                 Your battery is operating within optimal parameters and is performing as expected. 
                                                                 The battery system is functioning normally, with no performance issues detected. 
-                                                            </p>
+                                                            </p>-->
                                                         </div>
                                                     </div>
 
@@ -438,6 +444,102 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
 
         <!-- Fetching data -->
         <script src="./assets/js/initFetch.js"></script>
+
+        <!-- Page Specific JS -->
+        <script>
+            let batterySN;
+            let inverterSN;
+            
+            async function getDeviceData(SN){
+                let type = "";
+                const inverterResponse = await authGetInverter(SN);
+                let inverterData;
+                if(!inverterResponse.ok){
+                    console.log("inverter no data");
+                } else {
+                    inverterData = await inverterResponse.json();
+                }
+
+                if(inverterData.data){
+                    type = "Inverter";
+                    return [type, inverterData.data]
+                } else {}
+
+
+                const batteryResponse = await authGetBattery(SN);
+                let batteryData;
+                if(!batteryResponse.ok){
+                    console.log("no battery data")
+                } else {
+                    batteryData = await batteryResponse.json();
+                }
+
+                if(batteryData.data){
+                    type = "Battery";
+                    return [type, batteryData.data]
+                } else {}
+
+
+                return [null, null]
+            }
+
+            async function updateDashboard(){
+                const userDevices = JSON.parse(localStorage.getItem("userDevices"));
+                if(!userDevices){return;}
+                const devicesLength = userDevices.length;
+
+                let isBatteryUpdated;
+                let isInverterUpdated;
+                
+                // search battery and inverter serial number
+                for(let i=0; i<devicesLength; i++){
+                    // if battery and inverter serial number already known, skip this loop
+                    if(batterySN && inverterSN){break;}
+
+                    const [deviceType, deviceData] = await getDeviceData(userDevices[i].serial);
+                    
+                    if(deviceType == 'Battery'){
+                        // if already updated, return
+                        if(isBatteryUpdated){continue;}
+
+                        isBatteryUpdated = true;
+                        batterySN = userDevices[i].serial;
+                    }
+
+                    else if(deviceType == 'Inverter'){
+                        if(isInverterUpdated){continue;}
+
+                        isInverterUpdated = true;
+                        batterySN = userDevices[i].serial;
+                    }
+                }
+
+                // fetch the first inverter and first battery data
+                if(batterySN){
+                    const [deviceType, deviceData] = await getDeviceData(batterySN);
+
+                    // update page
+                    console.log(deviceData);
+                    document.getElementById('dashboard-top-soc').innerText = deviceData.dataBattery.soc;
+                    document.getElementById('dashboard-battery-soc').innerText = deviceData.dataBattery.soc;
+                    document.getElementById('dashboard-battery-soh').innerText = deviceData.dataBattery.soh;
+                    document.getElementById('dashboard-battery-temp').innerText = deviceData.dataBattery.temperature;
+                } else {}
+
+                if(inverterSN){
+                    const [deviceType, deviceData] = await getDeviceData(batterySN);
+
+                    // update page
+                    console.log(deviceData);
+                    document.getElementById('dashboard-top-generated').innerText = deviceData.dataInverter.pv_power;
+                    document.getElementById('dashboard-top-usage').innerText = deviceData.dataInverter.output_power;
+                    document.getElementById('dashboard-top-pv').innerText = deviceData.dataInverter.pv_power;
+                    document.getElementById('dashboard-top-import').innerText = deviceData.dataInverter.grid_power;
+                }
+            }
+
+            setInterval(updateDashboard, 1000);
+        </script>
 
         <!-- Custom JS -->
         <script>

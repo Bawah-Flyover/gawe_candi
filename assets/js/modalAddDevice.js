@@ -25,6 +25,9 @@ async function addNewDevice(){
         addDeviceModal.hide();
         const successModal = new bootstrap.Modal(document.getElementById('addDeviceSuccessModal'));
         successModal.show();
+
+        // remove latest saved device, so it will fetch the new list
+        localStorage.removeItem("userDevices");
     }
 
     return;

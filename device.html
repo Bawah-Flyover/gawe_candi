@@ -62,18 +62,18 @@
                                                     <hr>
                                                     <div class="row align-items-center my-3">
                                                         <div class="col-md-3 fw-bold">Device type</div>
-                                                        <div class="col" id="device-type"></div>
+                                                        <div class="col" id="device-type">No Data</div>
                                                     
                                                     </div>
                                                     <hr>
                                                     <div class="row align-items-center my-3">
                                                         <div class="col-md-3 fw-bold">Registered Date</div>
-                                                        <div class="col" id="device-registered-date"></div>
+                                                        <div class="col" id="device-registered-date">No Data</div>
                                                     </div>
                                                     <hr>
                                                     <div class="row align-items-center my-3">
                                                         <div class="col-md-3 fw-bold">Last Update</div>
-                                                        <div class="col" id="device-last-update"></div>
+                                                        <div class="col" id="device-last-update">No Data</div>
                                                     </div>
                                                     <hr>
                                                     <div class="row align-items-center my-3">
@@ -138,7 +138,7 @@
                                                                         <div class="text-center" style="flex: 0.5 0 auto;">
                                                                             <div class="fw-bold">SOH</div>
                                                                             <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                                                <span id="device-data-battery-soh"></span> <span class="text-muted" style="font-size: 0.5em;">%</span>
+                                                                                <span id="device-data-battery-soh">No Data</span> <span class="text-muted" style="font-size: 0.5em;">%</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -154,7 +154,7 @@
                                                                         <div class="text-center" style="flex: 0.5 0 auto;">
                                                                             <div class="fw-bold">Temp</div>
                                                                             <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                                                <span id="device-data-battery-temp"></span> <span class="text-muted" style="font-size: 0.5em;">&deg;C</span>
+                                                                                <span id="device-data-battery-temp">No Data</span> <span class="text-muted" style="font-size: 0.5em;">&deg;C</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -170,7 +170,7 @@
                                                                         <div class="text-center" style="flex: 0.5 0 auto;">
                                                                             <div class="fw-bold">Energy</div>
                                                                             <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                                                <span id="device-data-battery-energy"></span> <span class="text-muted" style="font-size: 0.5em;">Wh</span>
+                                                                                <span id="device-data-battery-energy">No Data</span> <span class="text-muted" style="font-size: 0.5em;">Wh</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -186,7 +186,7 @@
                                                                         <div class="text-center" style="flex: 0.5 0 auto;">
                                                                             <div class="fw-bold">Voltage</div>
                                                                             <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                                                <span id="device-data-battery-voltage"></span> <span class="text-muted" style="font-size: 0.5em;">V</span>
+                                                                                <span id="device-data-battery-voltage">No Data</span> <span class="text-muted" style="font-size: 0.5em;">V</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -202,7 +202,7 @@
                                                                         <div class="text-center" style="flex: 0.5 0 auto;">
                                                                             <div class="fw-bold">Current</div>
                                                                             <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                                                <span id="device-data-battery-current"></span> <span class="text-muted" style="font-size: 0.5em;">A</span>
+                                                                                <span id="device-data-battery-current">No Data</span> <span class="text-muted" style="font-size: 0.5em;">A</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -218,7 +218,7 @@
                                                                         <div class="text-center" style="flex: 0.5 0 auto;">
                                                                             <div class="fw-bold">Power</div>
                                                                             <div class="primary-color" style="font-size: clamp(1.25rem, 4vw, 2.5rem);">
-                                                                                <span id="device-data-battery-power"></span> <span class="text-muted" style="font-size: 0.5em;">W</span>
+                                                                                <span id="device-data-battery-power">No Data</span> <span class="text-muted" style="font-size: 0.5em;">W</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -282,7 +282,7 @@
                     <div class="modal-body">
                             <div class="row mb-3 mt-3" style="text-align: center;">
                                 <div class="col">
-                                    Are you sure want to <b>delete</b> this device (<span id="delete-modal-serial-number"></span>)? This action can't be undone.
+                                    Are you sure want to <b>delete</b> this device (<span id="delete-modal-serial-number"></span>)? <br>This action can't be undone.
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -394,7 +394,7 @@
 
             async function updatePage(){
                 const [deviceType, deviceData] = await getDeviceData(deviceSerialNumber);
-                console.log(deviceData)
+                //console.log(deviceData)
 
                 if(!deviceType){return;}
 
@@ -456,6 +456,9 @@
                 if(!response.ok){
                     alert('Error to delete device');
                 } else {
+                    // remove latest saved device, so it will fetch the new list
+                    localStorage.removeItem("userDevices");
+                    
                     // refresh
                     window.location.replace('./');
                 }

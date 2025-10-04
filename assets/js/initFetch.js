@@ -1,24 +1,50 @@
 async function initUserData(){
-    let userData = await authUser();
+    // check local storage for user data
+    let userEmail = localStorage.getItem("authEmail");
 
-    if(!userData){
-        return;
+    // if not found, fetch
+    if(!userEmail){
+        let userData = await authUser();
+
+        if(!userData){
+            return;
+        }
+        else{
+            // save in local storage
+            localStorage.setItem("authEmail", userData.user.email);
+            userEmail = userData.user.email
+        }
     }
+
 
     const page = window.location.pathname.split("/").pop(); 
     
-    document.getElementById('auth-user-full-name').innerText = userData.user.email;
+    document.getElementById('auth-user-full-name').innerText = userEmail;
     if (page === "profile.html") {
-        document.getElementById('profile-user-email').innerText = userData.user.email;
+        document.getElementById('profile-user-email').innerText = userEmail;
     }
 }
 
 async function initGetDevice(){
+    // check local storage for device list
+    let userDevices = JSON.parse(localStorage.getItem("userDevices"));
+
+    // if not found, fetch
+    if(!userDevices){
+        let data = await authGetDevice();
+
+        if(!data){
+            return;
+        } else {
+            userDevices = data.devices;
+            localStorage.setItem("userDevices", JSON.stringify(userDevices));
+        }
+    }
+    
     const page = window.location.pathname.split("/").pop(); 
 
-    let deviceData = await authGetDevice();
-    if(deviceData){
-        let devices  = deviceData.devices;
+    if(userDevices){
+        let devices  = userDevices;
         let devicesLength = devices.length;
 
         // update device list on sidebar

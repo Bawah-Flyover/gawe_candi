@@ -82,6 +82,8 @@ async function authLogout(){
     // delete saved token
     localStorage.removeItem("authToken");
     localStorage.removeItem("authType");
+    localStorage.removeItem("authEmail");
+    localStorage.removeItem("userDevices");
 
     window.location.href = "./login_v2.html";
 }

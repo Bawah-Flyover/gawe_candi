@@ -10,6 +10,7 @@ body {
   background-color: #F3F6F9;
 }
 
+
 /* =====================================================
  * Font
  * =====================================================
@@ -196,12 +197,40 @@ p  { font-size: 1rem; font-weight: 400; }    /* ~16px */
 
 .voltage-card{
     background: #54849e; 
-    background: linear-gradient(90deg, rgba(84, 132, 158, 1) 0%, rgba(4, 44, 72, 1) 100%);
+    background: linear-gradient(90deg, rgba(84, 132, 158, 1) 0%, rgba(4, 44, 72, 1) 100%) !important;
+    position: relative;
+    overflow: hidden;
 }
 
 .current-card{
     background: #d6c090;
-    background: linear-gradient(90deg, rgba(214, 192, 144, 1) 0%, rgba(166, 142, 94, 1) 100%);
+    background: linear-gradient(90deg, rgba(214, 192, 144, 1) 0%, rgba(166, 142, 94, 1) 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.overlay-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.65); /* ✅ subtle white tint */
+  z-index: 10;
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+  backdrop-filter: blur(2px); /* ✅ optional: gentle frosted effect */
+}
+
+.overlay-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6); /* ✅ better contrast */
 }
 
 /* =====================================================
