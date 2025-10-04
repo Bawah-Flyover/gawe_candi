@@ -177,6 +177,26 @@ async function authGetBattery(serialNumber){
     }
 }
 
+async function authExport(serialNumber, start_date, end_date) {
+    const endpoint = serverAddress + `/api/v1/batteries/export?serial=${serialNumber}&start_date=${start_date}&end_date=${end_date}`;
+    const token = localStorage.getItem("authToken");
+    const type = 'Bearer';
+
+    try{
+        const response = await fetch(endpoint, {
+            method: 'GET',
+            headers: {
+                'Authorization' :`${type} ${token}`,
+                'Content-Type': 'application/json'
+            },
+        });
+        return response;
+
+    } catch(error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+}
+
 // ========================================================================================
 // DEVICES
 // ========================================================================================

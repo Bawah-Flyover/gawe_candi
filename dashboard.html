@@ -167,7 +167,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <!-- Transparent overlay that blocks clicks and shows text -->
                                         <div class="overlay-block">
                                             <span class="overlay-text">No Data</span>
@@ -519,7 +519,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                     const [deviceType, deviceData] = await getDeviceData(batterySN);
 
                     // update page
-                    console.log(deviceData);
+                    //console.log(deviceData);
                     document.getElementById('dashboard-top-soc').innerText = deviceData.dataBattery.soc;
                     document.getElementById('dashboard-battery-soc').innerText = deviceData.dataBattery.soc;
                     document.getElementById('dashboard-battery-soh').innerText = deviceData.dataBattery.soh;
@@ -530,7 +530,7 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                     const [deviceType, deviceData] = await getDeviceData(batterySN);
 
                     // update page
-                    console.log(deviceData);
+                    //console.log(deviceData);
                     document.getElementById('dashboard-top-generated').innerText = deviceData.dataInverter.pv_power;
                     document.getElementById('dashboard-top-usage').innerText = deviceData.dataInverter.output_power;
                     document.getElementById('dashboard-top-pv').innerText = deviceData.dataInverter.pv_power;
@@ -621,26 +621,6 @@ background: linear-gradient(90deg, rgba(63, 186, 184, 1) 0%, rgba(21, 153, 151, 
                 fetchChartPower("24H", 24, 'h');
                 fetchChartVoltage("24H", 24, 'h');
                 fetchChartCurrent("24H", 24, 'h');
-
-                // export selection
-                const rangeSelect = document.getElementById('rangeSelect');
-                const customRange = document.getElementById('customRange');
-                rangeSelect.addEventListener('change', function() {
-                    if (this.value === 'custom') {
-                        customRange.style.display = 'block';
-                    } else {
-                        customRange.style.display = 'none';
-                    }
-                });
-
-                // export button
-                const exportButton = document.getElementById('export-button');
-                const startDateElement = document.getElementById('startDate');
-                const endDateElement = document.getElementById('endDate');
-                exportButton.addEventListener('click', function() {
-                    console.log("Start Date : " + String(startDateElement.value));
-                    console.log("End Date : " + String(endDateElement.value));
-                });
             });
         </script>
 
